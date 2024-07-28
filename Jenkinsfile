@@ -1,17 +1,11 @@
 pipeline {
     agent any
-
-    tools {
-        jdk 'jdk17'
-        maven 'mvn'
-    }
-
     stages {
         stage('Build') {
             steps {
-                script {
-                    env.JAVA_HOME="${tool 'jdk17'}"
-                    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+                tools {
+                    jdk 'jdk17'
+                    maven 'mvn'
                 }
                 echo 'Building..'
                 sh 'mvn clean install'
@@ -23,6 +17,10 @@ pipeline {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS'
               }
             }
+                tools {
+                    jdk 'jdk17'
+                    maven 'mvn'
+                }
             steps {
                 sh 'mvn deploy'
             }
