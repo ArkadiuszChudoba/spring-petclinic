@@ -11,10 +11,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    env.JAVA_HOME="${tool 'jdk17'}"
-                    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
-                }
+//                 script {
+//                     env.JAVA_HOME="${tool 'jdk17'}"
+//                     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+//                 }
                 echo 'Building..'
                 sh 'java --version'
                 sh 'echo "$JAVA_HOME"'
