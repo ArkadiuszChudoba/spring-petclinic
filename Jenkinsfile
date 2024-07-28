@@ -6,6 +6,9 @@ pipeline {
         maven 'mvn'
     }
 
+    env.JAVA_HOME="${tool 'jdk17'}"
+    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+
     stages {
         stage('Build') {
             steps {
