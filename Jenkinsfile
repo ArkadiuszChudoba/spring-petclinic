@@ -14,7 +14,7 @@ pipeline {
                 echo 'Building..'
                 sh 'java --version'
                 sh 'echo "$JAVA_HOME"'
-                sh 'mvn clean install'
+                sh 'JAVA_HOME=/Users/achudoba/.jenkins/tools/hudson.model.JDK/jdk17-2/jdk-17.0.2; mvn clean install'
             }
         }
         stage('Deploy') {
