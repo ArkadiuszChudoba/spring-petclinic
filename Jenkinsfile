@@ -25,6 +25,7 @@ pipeline {
             }
             steps {
                 sh 'mvn deploy'
+                build job: 'RunPetClinic'
             }
         }
     }
