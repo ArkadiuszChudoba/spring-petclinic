@@ -8,16 +8,14 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stages {
-            stage('Deploy') {
-                when {
-                  expression {
-                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
-                  }
-                }
-                steps {
-                    sh 'mvn deploy'
-                }
+        stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS'
+              }
+            }
+            steps {
+                sh 'mvn deploy'
             }
         }
     }
