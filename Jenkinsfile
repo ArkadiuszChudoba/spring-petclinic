@@ -17,6 +17,7 @@ pipeline {
                 }
                 echo 'Building..'
                 sh 'java --version'
+                sh 'echo ""$JAVA_HOME"'
                 sh 'mvn clean install'
             }
         }
